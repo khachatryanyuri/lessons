@@ -1,15 +1,18 @@
 // -----------1---------------
 
 // function foo(a) {
-//   a = 5;
-//   console.log(a);
+//   // a = 5;
+//   // console.log(a);
 //   return function baz(b) {
 //     console.log(a * 5);
+//     return function zaz(c) {
+//     console.log(c * 5);
+//   };
 //   };
 // }
-// foo(0)(1);
-// let k = foo(0);
-// k(5);
+// foo(0)(5)(2);
+
+// // կտպի 0, Սկոբերի տեսանելիություն։ baz ֆունկցիայի մեջ a փոփոխականը տեսանելի է բայց foo ֆունկցիայի մեջ, b փոփոխականը ոչ։
 
 // -----------2---------------
 
@@ -22,6 +25,8 @@
 //   console.log(count);
 // }
 // foo();
+
+// // if մեջ գրված count այլ փոփոխական է և տեսանելի if-ից դուրս, պահվում է նոր հասցեով
 
 // -----------3---------------
 
@@ -45,6 +50,7 @@
 //   let count = 0;
 //   function increment() {
 //     count++;
+//     console.log(count);
 //   }
 
 //   let message = `Count is ${count}`;
@@ -60,3 +66,7 @@
 // increment();
 // increment();
 // log();
+
+//կտպի 0
+// let message = `Count is ${count}`; ֆիկսում է counti հասցեն և պահում սկզբնական արժեքը, 
+//increment կանչելուց count++ պահում է արդեն նոր հասցեով։

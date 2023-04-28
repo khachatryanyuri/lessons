@@ -7,23 +7,23 @@
 //   diameter() {
 //     return this.radius * 2;
 //   },
-//   perimeter: () => 2 * Math.PI * shape.radius,
+//   perimeter: () => 2 * Math.PI * this.radius,
 // };
 
-// console.log(shape.diameter());
-// console.log(shape.perimeter());
+// console.log(shape.diameter()); // կտպի 20, տվյալ դեպքում this-ը դիմում է օբյեկտի radius փոփոխականին
+// console.log(shape.perimeter()); // կտպի NaN, տվյալ դեպքում this-ը դիմում է window֊ին
 
 //----------2-----------
 
-// let a = 3;
-// let b = new Number(3);
-// let c = 3;
+// let a = 3;  //type number
+// let b = new Number(3); // //type object
+// let c = 3; //type number
 
-// console.log(a == b);
-// console.log(a === b);
-// console.log(b === c);
-// console.log(typeof b);
-// console.log(typeof a);
+// console.log(a == b);//true
+// console.log(a === b);//false
+// console.log(b === c);//false
+
+//2 == չի տիպերը չի ստուգում, 3 հավասարը համեմատում է նաև տիպերը։
 
 //----------3-----------
 
@@ -35,8 +35,15 @@
 // const lydia = new Person("Lydia", "Hallie");
 // const sarah = Person("Sarah", "Smith");
 
-// console.log(lydia);
-// console.log(sarah);
+// console.log(lydia); //Person { firstName: 'Lydia', lastName: 'Hallie' }
+// console.log(sarah); //undefined(new չենք օգտագործել)
+
+//new-ն օգտագործվում է JavaScript-ում՝ կոնստրուկտոր ֆունկցիայից օբյեկտ ստեղծելու համար։
+//new-ն  պետք է տեղադրվի կոնստրուկտորի ֆունկցիայի կանչից առաջ, կանի հետևյալ գործողությունները.
+//Ստեղծում է նոր օբյեկտ
+//Այս օբյեկտի նախատիպը սահմանում է կոնստրուկտորի ֆունկցիայի նախատիպի հատկությանը
+//Այս բանալի բառը կապում է նոր ստեղծված օբյեկտի հետ և կատարում կոնստրուկտորի ֆունկցիան
+//Վերադարձնում է նոր ստեղծված օբյեկտը
 
 //----------4-----------
 
@@ -52,6 +59,9 @@
 
 // checkAge({ age: 18 });
 
+//կտպի Hmm.. You don't have an age I guess
+//տվյալ object-ները պահվում են ram-ում տարբեր հասցեներով
+
 //----------5-----------
 
 // const a = {};
@@ -62,6 +72,13 @@
 // a[c] = 456;
 
 // console.log(a[b]);
+
+// կտպի 456։
+// Օբյեկտների key-երը ավտոմատ կերպով վերածվում են տողերի:
+// Մենք փորձում ենք օբյեկտ դնել որպես բանալի a օբյեկտի համար՝ 123 արժեքով։
+// key-ը դառնեւմ է «[object Object]»,
+// Այսպիսով a["[object Object]"] = 123:
+// հետո, a["[object Object]"] = 456:
 
 //----------6-----------
 
@@ -84,6 +101,9 @@
 
 // console.log(counterOne.count);
 
+// ունենք constructor որը ստեղծում է count և increment որը գործողություն է անում count-ի հետ։
+// const counterTwo = counterOne; հատվածով հղվում ենք նույն հասցեի վրա, այդ իսկ պատճարով տպում է 3
+
 //----------7-----------
 
 // const object = {
@@ -95,6 +115,8 @@
 // };
 // console.log(object.getMessage());
 
+//this-ը դիմում է object-ի message-ին այդ իսկ պատճարով կտպի "Hello, World!"
+
 //----------8-----------
 
 // function Pet(name) {
@@ -102,9 +124,9 @@
 //   this.getName = () => this.name;
 // }
 // const cat = new Pet("Fluffy");
-// console.log(cat.getName());
+// console.log(cat.getName());//Fluffy, () => ֆունկցիայում this-ը դիմում է իրենից վերև գտնվող արաջին this
 // const { getName } = cat;
-// console.log(getName());
+// console.log(getName());//Fluffy
 
 //----------9-----------
 
@@ -116,6 +138,11 @@
 // };
 // setTimeout(object.logMessage, 1000);
 
+//setTimeout() ստեղծում է object.logMessage-ը որպես սովորական ֆունկցիա, այլ ոչ թե մեթոդ:
+//Իսկ սովորական ֆունկցիայի կանչի ժամանակ հղվում է գլոբալ օբյեկտին(window)
+//Ահա թե ինչու console.log(this.message) ներսում logMessage մեթոդը գրանցում է window.message-ը, որն անորոշ է:
+
+//խնդրի լուծում
 // setTimeout(function () {
 //   object.logMessage();
 // }, 1000);
@@ -131,8 +158,8 @@
 //     return `Goodbye, ${this.who}!`;
 //   },
 // };
-// console.log(object.greet());
-// console.log(object.farewell());
+// console.log(object.greet()); //Hello, World!
+// console.log(object.farewell());//Goodbye, undefined!    //() => ֆունկցայի և տվյալ դեպքում this դիմում է window-ին
 
 //----------11-----------
 
@@ -148,7 +175,11 @@
 // };
 // object.method(callback, 1, 2);
 
+// իմ հասկանալով պետքա 4 տպի բայց undefined տպում, քննարկենք
+
 //----------12-----------
+
+//Քնարկենք
 
 // const call = {
 //   caller: "mom",
@@ -157,8 +188,7 @@
 //   },
 // };
 
-// let newCall = call.says;
-
+// let newCall = call.says;//վերագրվում է հասցեին
 // newCall();
 
 // let newCall1 = call.says();

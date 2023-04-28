@@ -1,55 +1,91 @@
-// ---------------1--------------
+// // ---------------1--------------
 
-// Տրված է՝
+// // Տրված է՝
 
 // class Person {}
 // class Employee extends Person {}
 // class Developer extends Employee {}
 // const tom = new Developer();
 
-// Ի՞նչ արժեք կունենան հետևյալ տողերը, ինչու՞
+// // Ի՞նչ արժեք կունենան հետևյալ տողերը, ինչու՞
 
-// Object.getPrototypeOf(tom) === Developer.prototype; // A
-// Object.getPrototypeOf(tom) === Employee.prototype; // B
-// Developer.isPrototypeOf(tom); // C
-// Developer.prototype.isPrototypeOf(tom); // D
-// Employee.prototype.isPrototypeOf(tom); // E
-// Person.prototype.isPrototypeOf(tom); // F
-// Object.prototype.isPrototypeOf(tom); // G
+// console.log(Object.getPrototypeOf(tom) === Developer.prototype);
+// console.log(Object.getPrototypeOf(tom) === Employee.prototype);
+// console.log(Developer.isPrototypeOf(tom));
+// console.log(Developer.prototype.isPrototypeOf(tom));
+// console.log(Employee.prototype.isPrototypeOf(tom));
+// console.log(Person.prototype.isPrototypeOf(tom));
+// console.log(Object.prototype.isPrototypeOf(tom));
 
-// ---------------2--------------
+// // ---------------2--------------
 
 //Տրված է՝
+
 // const a = () => {};
 // function B() {}
 
-// Ի՞նչ արժեք կունենան հետևյալ տողերը, ինչու՞
-// typeof a; // A
-// typeof B; // A
-// Object.getPrototypeOf(a); // B
-// Object.getPrototypeOf(B); // B
-// a.prototype; // C
-// B.prototype; // C
+// // Ի՞նչ արժեք կունենան հետևյալ տողերը, ինչու՞
+
+// console.log(typeof a);
+// console.log(typeof B);
+// console.log(Object.getPrototypeOf(a));
+// console.log(Object.getPrototypeOf(B));
+// console.log(a.prototype);
+// console.log(B.prototype);
 
 // ---------------3--------------
 
 // Ինչպես է աշխատում new keyword-ը ? Ի՞նչ գործողություններ է այն կատարում։
 
+//new-ն օգտագործվում է JavaScript-ում՝ կոնստրուկտոր ֆունկցիայից օբյեկտ ստեղծելու համար։
+//new-ն  պետք է տեղադրվի կոնստրուկտորի ֆունկցիայի կանչից առաջ, կանի հետևյալ գործողությունները.
+//Ստեղծում է նոր օբյեկտ
+//Այս օբյեկտի նախատիպը սահմանում է կոնստրուկտորի ֆունկցիայի նախատիպի հատկությանը
+//Այս բանալի բառը կապում է նոր ստեղծված օբյեկտի հետ և կատարում կոնստրուկտորի ֆունկցիան
+//Վերադարձնում է նոր ստեղծված օբյեկտը
+
+
 // 4.
 // Թարգմանեք հետևյալ կոդը ES5-ի (օգտագործեք function-ներ class-ի փոխարեն):
+
 // class Person {
 //  constructor(name) {
 //    this.name = name;
 //  }
 
 //  sayHello() {
-//    console.log(Hello from ${this.name});
+//    console.log(`Hello from ${this.name}`);
 //  }
 // }
+
+// function Person (name) {
+//   this.name = name,
+//   this.sayHello = function () {
+//     console.log(`Hello from ${this.name}`);
+// }
+// }
+
+// const person = new Person('aaa');
+// person.sayHello()
+
 
 // ---------------5--------------
 
 //Ստեղծեք object, որը չունի prototype:
+
+// var dictionary = Object.create(null, {
+//   destructor: { value: "A destructive element" }
+// });
+
+// function getDefinition(word) {
+//   return dictionary[word];
+// }
+
+// // Outputs: "A destructive element"
+// console.log(getDefinition("destructor"));
+
+// // Outputs: undefined
+// console.log(getDefinition("constructor"));
 
 // ---------------6--------------
 
@@ -60,6 +96,21 @@
 //   this.speak = function () {
 //     console.log('Speaking:', this.name);
 //   }
+// }
+
+// const a = new Hopar('a');
+// const b = new Hopar('b');
+
+// console.log(a.speak());
+// console.log(b.speak());
+
+//Փոփոխված
+
+// function Hopar(name) {
+//   this.name = name;
+// }
+// Hopar.prototype.speak = function() {
+//   console.log('Speaking:', this.name)
 // }
 
 // const a = new Hopar('a');

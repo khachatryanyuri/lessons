@@ -44,7 +44,6 @@
 //Այս բանալի բառը կապում է նոր ստեղծված օբյեկտի հետ և կատարում կոնստրուկտորի ֆունկցիան
 //Վերադարձնում է նոր ստեղծված օբյեկտը
 
-
 // 4.
 // Թարգմանեք հետևյալ կոդը ES5-ի (օգտագործեք function-ներ class-ի փոխարեն):
 
@@ -67,7 +66,6 @@
 
 // const person = new Person('aaa');
 // person.sayHello()
-
 
 // ---------------5--------------
 
@@ -130,6 +128,44 @@
 // - Երբ ինքնաթիռը օդ է բարձրանում (takeOff), “isFlying”-ը պետք է դառնա true
 // - Երբ ինքնաթիռը վայրէջք է կատարում (land), “isFlying”-ը պետք է դառնա false
 
+//ES_5
+
+// const Airplane = function (options) {
+//   this.name = options.name;
+//   this.isFlying = false;
+// };
+// Airplane.prototype.takeOff=function () {
+//   this.isFlying=true
+// }
+// Airplane.prototype.land=function () {
+//   this.isFlying=false
+// }
+
+// const airplane = new Airplane({name: "airplane"})
+// console.log(airplane);
+// airplane.takeOff()
+// console.log(airplane);
+// airplane.land()
+// console.log(airplane);
+
+//ES_6
+
+// class Airplane {
+//   constructor(options) {
+//     this.name = options.name;
+//     this.isFlying = false;
+//   }
+//   takeOff() {this.isFlying=true}
+//   land() {this.isFlying=false}
+// }
+
+// const airplane = new Airplane({name: "airplane"})
+// console.log(airplane);
+// airplane.takeOff()
+// console.log(airplane);
+// airplane.land()
+// console.log(airplane);
+
 // ---------------8--------------
 
 // Ստեղծեք Person class / կոնստրուկտոր ֆունկցիա, որը ստանում է name և age արգումենտներ։
@@ -140,6 +176,72 @@
 // Ավելացրեք “clear” մեթոդ՝ clear().
 // - clear-ը պետք է դատարկի stomach-ի պարունակությունը
 
+//ES_5
+
+// const Person = function (options) {
+//   this.name = options.name;
+//   this.age = options.age;
+//   this.stomach = [];
+// };
+// Person.prototype.clear=function () {
+//   this.stomach=[]
+// }
+// Person.prototype.eat=function (uteliq) {
+//   this.stomach.push(uteliq)
+//   if(this.stomach.length===11){
+//     this.clear()
+//   }
+// }
+
+// const persone = new Person({name: "airplane", age:25})
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+
+// console.log(persone);
+
+//ES_6
+
+// class Person {
+//   constructor(options) {
+//     this.name = options.name;
+//     this.age = options.age;
+//     this.stomach = [];
+//   }
+//   clear() {
+//     this.stomach = [];
+//   }
+//   eat(uteliq) {
+//     this.stomach.push(uteliq);
+//     if (this.stomach.length === 11) {
+//       this.clear();
+//     }
+//   }
+// }
+
+// const persone = new Person({name: "airplane", age:25})
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+// persone.eat('xndzor')
+
+// console.log(persone);
+
 // ---------------9-------------- (8.1).
 
 // Եթե այս կետում գրենք՝
@@ -148,8 +250,124 @@
 // Ի՞նչ կտեսնենք console-ում։ Ինչու՞։
 // Գրե՛ք կոդ, որից հետո console.log(person1.toString()); արտահայտությունը console-ում կտպի տվյալ person-ի անունը և տարիքը, օր․՝ “Person1, 14”:
 
+//es_5
+
+// const Person = function (options) {
+//   this.name = options.name;
+//   this.age = options.age;
+//   this.stomach = [];
+// };
+// Person.prototype.clear=function () {
+//   this.stomach=[]
+// }
+// Person.prototype.eat=function (uteliq) {
+//   this.stomach.push(uteliq)
+//   if(this.stomach.length===11){
+//     this.clear()
+//   }
+// }
+// Person.prototype.toString = function() {
+//   return `${this.name}, ${this.age}`;
+// };
+// const persone = new Person({name: "airplane", age:25})
+// console.log(persone.toString())
+
+//es_6
+// class Person {
+//   constructor(options) {
+//     this.name = options.name;
+//     this.age = options.age;
+//     this.stomach = [];
+//   }
+//   clear() {
+//     this.stomach = [];
+//   }
+//   eat(uteliq) {
+//     this.stomach.push(uteliq);
+//     if (this.stomach.length === 11) {
+//       this.clear();
+//     }
+//   }
+//   toString() {
+//     return `${this.name}, ${this.age}`;
+//   }
+// }
+// const person1 = new Person({ name: "Person1", age: 14 });
+// console.log(person1.toString());
+
 // ---------------10-------------- (8.2):
 
 // Ստեղծեք Baby class / կոնստրուկտոր ֆունկցիա, որը ժառանգում է Person class-ը։
 // Baby-ի կոնստրուկտորը, Person-ի հետ համեմատած, պետք է ստանա 1 ավել արգումենտ՝ “favoriteToy”։
 // Person-ի մեթոդներից բացի, Baby-ն պետք է ունենա “play()” մեթոդ, որը կանչվելուց պետք է վերադարձնի string` “Playing with x”, որտեղ x-ը favoriteToy-ն է տվյալ instance-ի համար։
+
+//es_5
+
+// const Person = function (options) {
+//   this.name = options.name;
+//   this.age = options.age;
+//   this.stomach = [];
+// };
+// Person.prototype.clear = function () {
+//   this.stomach = [];
+// };
+// Person.prototype.eat = function (uteliq) {
+//   this.stomach.push(uteliq);
+//   if (this.stomach.length === 11) {
+//     this.clear();
+//   }
+// };
+// Person.prototype.toString = function () {
+//   return `${this.name}, ${this.age}`;
+// };
+// const Baby = function (options) {
+//   Person.apply(this, arguments);
+//   this.favoriteToy = options.favoriteToy;
+// };
+// Baby.prototype = Object.create(Person.prototype);
+// Baby.prototype.constructor = Baby;
+// Baby.prototype.play = function () {
+//   console.log("Playing with " + this.favoriteToy);
+// };
+
+// const baby = new Baby({ name: "baby", age: 1, favoriteToy: "bear" });
+// console.log(baby);
+// baby.play();
+
+//es_6
+
+// class Person {
+//   constructor(options) {
+//     this.name = options.name;
+//     this.age = options.age;
+//     this.stomach = [];
+//   }
+//   clear() {
+//     this.stomach = [];
+//   }
+//   eat(uteliq) {
+//     this.stomach.push(uteliq);
+//     if (this.stomach.length === 11) {
+//       this.clear();
+//     }
+//   }
+//   toString() {
+//     return `${this.name}, ${this.age}`;
+//   }
+// }
+
+// class Baby extends Person {
+//   constructor(options) {
+//     super(options);
+//     this.favoriteToy = options.favoriteToy;
+//   }
+//   play() {
+//     console.log("Playing with " + this.favoriteToy);
+//   }
+// }
+
+// const baby = new Baby({ name: "baby", age: 1, favoriteToy: "bear" });
+// console.log(baby);
+// baby.play();
+// baby.eat('xndzor')
+// console.log(baby);

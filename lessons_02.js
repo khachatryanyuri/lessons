@@ -2,13 +2,31 @@
 
 //----------1-----------
 
-// const shape = {
-//   radius: 10,
-//   diameter() {
-//     return this.radius * 2;
-//   },
-//   perimeter: () => 2 * Math.PI * this.radius,
-// };
+// const arr = [1, 2, 3];
+
+// const arr2 = arr
+
+// arr2.push(4)
+
+// const obj2 = {
+//  radius: 20
+// }
+// function foo (){
+
+//   const obj = {
+//     radius: 10,
+//     diameter() {
+//       var radius = 1
+//       return this.radius * 2;
+//     },
+//     perimeter: () => console.log(this.radius),
+//   };  
+//   obj.perimeter()
+
+// }
+// foo.call(obj2)
+// foo()
+
 
 // console.log(shape.diameter()); // կտպի 20, տվյալ դեպքում this-ը դիմում է օբյեկտի radius փոփոխականին
 // console.log(shape.perimeter()); // կտպի NaN, տվյալ դեպքում this-ը դիմում է window֊ին

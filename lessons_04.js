@@ -1,6 +1,15 @@
-// 1. Write iterator function for an array that returns each value of the array when called, one element at  a time
+// // 1. Write iterator function for an array that returns each value of the array when called, one element at  a time
 // const returnIterator = (arr) => {
-//     // ... your code here
+//   let index = 0;
+
+//   const obj = {
+//     next: () => {
+//       const result = [index, arr[index]];
+//       index++;
+//       return result;
+//     },
+//   };
+//   return obj;
 // };
 
 // const array2 = ["a", "b", "c", "d"];
@@ -10,10 +19,11 @@
 // console.log(myIterator.next()); // -> should log [1, 'b']
 // console.log(myIterator.next()); // -> should log [2, 'c']
 
-// 2. Create an iterator that returns each word from a string of words on the call of its .next method (hint: use regex!) Then attach it as a method to the prototype of a constructor Words. Hint: research Symbol.iterator!
+// // 2. Create an iterator that returns each word from a string of words on the call of its .next method (hint: use regex!) Then attach it as a method to the prototype of a constructor Words. Hint: research Symbol.iterator!
 // function Words(string) {
 //     this.str = string;
 // }
+
 // ... your code here
 
 // 3. Write a function that will console.log "hello there", or "bye", every three seconds depending on if the word passed into the function is 'english'. Do not use any type of loop constructor and only make the call to createConversation once.
